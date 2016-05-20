@@ -3,7 +3,7 @@ Practical task of Artem Lubkovskii for Eleks Internship (May 2016)
 ## Student Info
 * Name: Artem Lubkovskii
 * University: IFNTUNG
-* Course: 4 //todo: додайте сюди курс, на якому навчаєтесь
+* Course: 4
 ## Task Info
 Capital Hound
 Estimate - 120h (160h with additional challenges)
