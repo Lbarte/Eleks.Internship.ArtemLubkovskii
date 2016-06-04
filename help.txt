@@ -1,0 +1,1 @@
+Should start Apache server after npm to see working app through browser.
