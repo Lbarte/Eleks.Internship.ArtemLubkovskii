@@ -3,7 +3,7 @@
     <title>Capital Hound</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/styles.css">
 
     <!-- Polyfill(s) for older browsers -->
     <script src="node_modules/core-js/client/shim.min.js"></script>
@@ -14,6 +14,7 @@
     <script src="node_modules/systemjs/dist/system.src.js"></script>
 
     <script src="systemjs.config.js"></script>
+    <script src="js/searchFromLocation.js"></script>
     <!--
     <script>
       System.import('app').catch(function(err){ console.error(err); });
@@ -24,15 +25,26 @@
 
   <body>
     
-    <h1>Capital hound</h3>
-    <h3>Location:</h3>
-    <p id="latitude">Latitude: </p><input type="text" id="latitudeInput"/>
-    <p id="longitude">Longitude: </p><input type="text" id="longitudeInput"/><br>
-    <button id="currentDeviceLocationBtn" onClick="getCurrentDeviceLocation()">Enter your current device location</button><br>
-    <p type="text" id="resultTextarea">Country:</p> <br>
-    <button id="searchBtn" onClick="getCountry()">Search</button>
+    <h1>Capital hound</h1>
+    <h3>Enter location:</h3>
+    <p id="latitude">Latitude: </p><input type="text" id="latitudeInput" value="48.9"/><br>
+    <p id="longitude">Longitude: </p><input type="text" id="longitudeInput" value="24.7"/><br><br>
+    <button id="searchBtn" onClick="search()">Search</button><br><br>
+    <p id="countryResult"></p>
+    <p id="capitalResult"></p>
+    <p id="lengthToCapitalResult"></p>
+    <p id="capitalCoordsResult"></p>
+    <p id="capitalAltitudeResult"></p>
+    <p id="timeToCapitalByCarResult"></p>
+    <p id="formatted_address"></p>
     
-    
-    <script src="somethingNew.js"></script>
+    <p>Click the button to get your coordinates.</p>
+
+<button onclick="getCurrentDeviceLocation()">Get your current location</button>
+
+<p id="demo"></p>
+    <script src="js/search.js"></script>
+    <script src="js/setLocation.js"></script>
+
   </body>
 </html>

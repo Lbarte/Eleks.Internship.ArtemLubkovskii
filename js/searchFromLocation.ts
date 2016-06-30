@@ -1,21 +1,3 @@
-function getCurrentDeviceLocation(){
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(displayLocation);
-    }
-    else {
-        alert("Sorry ;P Something wrong on this way");
-    }
-}
-
-function displayLocation(position) {
-    
-    var latitude = position.coords.latitude;
-    var longitude = position.coords.longitude;
-    var textfieldLatitude = document.getElementById("latitude");
-    var textfieldLongitude = document.getElementById("longitude");
-    textfieldLatitude.innerHTML = "Latitude: " + latitude;
-    textfieldLongitude.innerHTML = "Longitude: " + longitude;
-}
 function getCountry() {
     console.error("getCountryFrom");
     getJSON("https://maps.googleapis.com/maps/api/geocode/json?latlng=40.714224,-73.961452&key=AIzaSyA-lDzccV2juv39_BrE-sRkPZ-NqaMaWD0");
@@ -31,7 +13,6 @@ function getJSON(url) {
     xmlhttp.open("POST", url, true);
     xmlhttp.send();
 }
-
 function myFunction(arr) {
     console.error("reading parced JSON");
     var out = "";
@@ -46,9 +27,7 @@ function myFunction(arr) {
             }
         }
     }
-    
 }
-
 function countryOutput(name) {
     document.getElementById("resultTextarea").textContent = "Country: " + name;
 }

@@ -1,0 +1,1 @@
+Errors repeated twice at "parsingJSONForCountryName(JSON.parse(xmlhttp.responseText));"
