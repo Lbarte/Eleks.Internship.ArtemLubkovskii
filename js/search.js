@@ -10,10 +10,16 @@ function getResult(latitude, longitude) {
 }
 function getJSON(url) {
     var xmlhttp = new XMLHttpRequest();
-    xmlhttp.open("POST", url, true);
+    xmlhttp.open("GET", url, true);
     xmlhttp.send();
+    var response;
     xmlhttp.onreadystatechange = function () {
-        parsingJSONForCountryName(JSON.parse(xmlhttp.responseText));
+        if (this.readyState != 4)
+            return;
+        response = xmlhttp.responseText;
+        console.error("before");
+        parsingJSONForCountryName(JSON.parse(response));
+        console.error("after");
         /*if(checkForCountry) {
             
         } else {
@@ -23,17 +29,15 @@ function getJSON(url) {
 }
 function parsingJSONForCountryName(arr) {
     //country search
-    var country, countryShortName, out = "";
+    var country, countryShortName;
     for (var index = 0; index < arr.results.length; index++) {
         for (var adressComponentsIndex = 0; adressComponentsIndex < arr.results[index].address_components.length; adressComponentsIndex++) {
             if (arr.results[index].address_components[adressComponentsIndex].types[0] == "country") {
                 country = arr.results[index].address_components[adressComponentsIndex].long_name;
                 countryShortName = arr.results[index].address_components[adressComponentsIndex].long_name;
             }
-            out += arr.result[index].formatted_address;
         }
     }
-    document.getElementById("formatted_address").textContent = out;
     countryOutput(country);
     //capital search
     //getJSON("https://api.geonames.org/countryInfoJSON?&country="+countryShortName+"&username=lbarfo", false);
@@ -47,6 +51,7 @@ function countryOutput(name) {
     console.error(name);
 }
 function getInputLocation() {
-    latitude = document.getElementById("latitudeInput").textContent;
-    longitude = document.getElementById("longitudeInput").textContent;
+    latitude = document.getElementById("latitudeInput").value;
+    longitude = document.getElementById("longitudeInput").value;
+    console.error(latitude + "; " + longitude);
 }
