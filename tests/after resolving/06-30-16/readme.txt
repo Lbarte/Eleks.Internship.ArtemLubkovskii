@@ -7,3 +7,4 @@ Solution founded there: "http://stackoverflow.com/questions/12989741/the-propert
 2. Readestatechange event happens couple of times (5). Every statechange indicating about network packages loaded. 
 After "readyState=3" we can access responseText data, but in that case we may not receive network package`s breaks.
 "readyState=4" indicates about done with loading data from request - after this event we would work with response.
+Solution founded there: "https://learn.javascript.ru/ajax-xmlhttprequest"
